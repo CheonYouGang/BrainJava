@@ -29,7 +29,7 @@ public class Circle {
 
 	public static void main(String[] args) {//메인메소드
 
-		Circle pizza = new Circle(10, "자바피자"); // Circle 객체 생성, 반지름 10
+		Circle pizza = new Circle(10, "자바피자"); // Circle 객체 생성,반지름 10
 		double area = pizza.getArea();
 		System.out.println(pizza.name + "의 면적은 " + area);
 
