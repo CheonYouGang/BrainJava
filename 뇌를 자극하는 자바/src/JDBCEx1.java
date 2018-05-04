@@ -31,10 +31,11 @@ class JDBCEx1 {
             System.out.println("주민번호		이름	성별	나이");
             while(rs.next()) {//.next() - boolean타입
             
-            String jumincd = rs.getString("Jumincd");
-            String pname = rs.getString("PName");
-            String gender = rs.getString("Gender");
-            int age = rs.getInt("Age");
+            //숫자로 지정시 순서대로 지정되므로 컬럼명 변경이 되어도 바꿀 필요가 없다.
+            String jumincd = rs.getString(1);//("Jumincd");
+            String pname = rs.getString(2);//("PName");
+            String gender = rs.getString(3);//("Gender");
+            int age = rs.getInt(4);//("Age");
             
             System.out.println(jumincd+"	"+pname+"	"+gender+"	"+age);
             }
