@@ -28,7 +28,16 @@ class JDBCEx1 {
             stmt = conn.createStatement();
             //executeQuery DML쿼리 실행후 결과 저장
             rs = stmt.executeQuery("select Jumincd, PName, Gender, Age from persons");            
+            System.out.println("주민번호		이름	성별	나이");
+            while(rs.next()) {//.next() - boolean타입
             
+            String jumincd = rs.getString("Jumincd");
+            String pname = rs.getString("PName");
+            String gender = rs.getString("Gender");
+            int age = rs.getInt("Age");
+            
+            System.out.println(jumincd+"	"+pname+"	"+gender+"	"+age);
+            }
             //4단계 .close(); - DB연결 종료.
             conn.close();
         }
