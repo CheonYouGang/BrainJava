@@ -14,30 +14,33 @@ public class Circle {
 	public String name;
 	
 	public Circle() {//매개변수 없는 원의 생성자
-		radius = 1;
-		name = ""; 
+		this.radius = 1;
+		this.name = "";
+		//name = "";
+		
+		
 	}
 	
-	public Circle(int r, String n) { // 매개 변수를 가진 생성자
-		radius = r;
-		name = n;
+	public Circle(int radius, String name) { // 매개 변수를 가진 생성자
+		this.radius = radius;
+		this.name = name;
 	}
 	
 	public double getArea() {//메소드
 		return 3.14*radius*radius;
 	}
 
-	public static void main(String[] args) {//메인메소드
+	public static void main(String[] args) {//메인메소드(1번)
 
-		Circle pizza = new Circle(10, "자바피자"); // Circle 객체 생성,반지름 10
-		double area = pizza.getArea();
-		System.out.println(pizza.name + "의 면적은 " + area);
+		Circle pizza = new Circle(10, "자바피자"); // Circle 객체 생성(radius '10', name '자바피자')
+		double pizza_area = pizza.getArea();
+		System.out.println(pizza.name + "의 면적은 " + pizza_area);
 
-		Circle donut = new Circle(); // Circle 객체 생성, 반지름 1
-		donut.name = "도넛피자";
-		area = donut.getArea();
-		System.out.println(donut.name + "의 면적은 " + area);
-
+/*		Circle donut = new Circle(); // Circle 객체 생성, 반지름 1
+		donut.name = "자바도넛";
+		donut.radius = 2;
+		double donut_area = donut.getArea();
+		System.out.println(donut.name + "의 면적은 " + donut_area);*/
 	}
 
 }

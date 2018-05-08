@@ -21,9 +21,15 @@ public class CalculatorEx2 {
 		System.out.println("num2= " + num2);
 		
 		int a = 20, b = 30, max;
-		max = a < b ? a:b;
+		max = (a < b)? a : b;
 		System.out.println("maxÀÇ °ª: " + max);
 
+		int d =2, e=3, f=5;
+		double g=4.0, h=0.5, i;
+		i = ((d+e)==f)?g:h;
+		
+		System.out.println(i);
+		
 	}
 
 }
