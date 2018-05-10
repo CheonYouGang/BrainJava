@@ -129,4 +129,3 @@ class JDBC_Persons_ArrayList {
 		// JDBC 연결문 종료
 	}
 }
-
