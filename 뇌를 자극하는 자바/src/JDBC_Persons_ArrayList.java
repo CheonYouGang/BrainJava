@@ -78,10 +78,6 @@ class JDBC_Persons_ArrayList {
 
 		// try~catch문에서 DB연결중 예외가 발생하는지 검사.
 		try {
-			String jumincd = null;
-			String pname = null;
-			String gender = null;
-			int age = 0;
 
 			// Class.forName - 2단계: JDBC드라이버를 로드
 			Class.forName("com.mysql.jdbc.Driver");
