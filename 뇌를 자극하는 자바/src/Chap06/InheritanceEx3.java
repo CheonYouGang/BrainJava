@@ -18,7 +18,10 @@ class BonusPointAccount extends Account{
 		this.bonusPoint=bonusPoint;
 		System.out.println("BonusPointAccount(String accountNo, String ownerName, int balance, int bonusPoint)");
 	}
-
+	
+	public int displayBonusPoint() {
+		return bonusPoint;
+	}
 	@Override
 	public void deposit(int amount) {
 		balance += amount;
@@ -33,8 +36,10 @@ public class InheritanceEx3 {
 		BonusPointAccount bpa = new BonusPointAccount("222-33-444444", "훈민정음", 100000, 100);
 		
 		bpa.deposit(0);
-		System.out.println("잔액: " + bpa.balance);
-		System.out.println("누적 포인트: " + bpa.bonusPoint);
+		int balance = bpa.displayBalance();
+		System.out.println("잔액: " + balance);
+		int bonusPoint = bpa.displayBonusPoint();
+		System.out.println("누적 포인트: " + bonusPoint);
 
 	}
 
