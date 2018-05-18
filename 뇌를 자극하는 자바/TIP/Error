@@ -1,0 +1,16 @@
+JDBC에러
+
+1.You have an error in your SQL syntax;
+ check the manual that corresponds to your
+  MySQL server version for the right syntax to use near...
+  <원인> : SQL문법 오류
+  
+2.Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 0
+  <원인> : 0번째 인덱스에 값이 없음
+  
+3.Exception in thread "main" java.lang.NullPointerException
+	at JDBC_Persons.main
+  <원인> : 값을 넣지 않았을 경우(생성자 없음)
+  
+4.Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
+  <원인> : 해당 배열 초과로 인한 오류.
