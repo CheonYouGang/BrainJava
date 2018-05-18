@@ -5,10 +5,6 @@
  */
 package Chap06;
 
- /**
-  * @author kosea112
-  *
-  */
 
 import java.util.Date;
 import java.util.Properties;
