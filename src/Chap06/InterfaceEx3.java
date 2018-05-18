@@ -22,7 +22,7 @@ public class InterfaceEx3 {
 		SimpleDateFormat sf= new SimpleDateFormat("yyyy-MM-dd");
 		String strDate = sf.format(date);
 		
-		try {
+		try { 
 			obj.checkOut("ABC", strDate);
 		} catch (Exception e) {
 			System.out.println(e.getMessage()); 

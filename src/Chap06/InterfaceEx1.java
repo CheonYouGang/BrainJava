@@ -23,7 +23,7 @@ public class InterfaceEx1 {
 		obj2.checkIn();
 
 		System.out.println("===============================");
-		
+	
 		
 		// 인터페이스 다형성
 		Landable obj = new SeparateVolume("863?774개", "개미", "베르나르 베르베르");

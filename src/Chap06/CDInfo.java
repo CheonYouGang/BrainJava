@@ -18,4 +18,4 @@ public class CDInfo {
 		this.registerNo=registerNo;
 		this.title=title;
  	}
-}
+} 

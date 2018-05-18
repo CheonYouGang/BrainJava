@@ -14,7 +14,7 @@ public class AppCDInfo extends CDInfo implements Landable {
 	String borrower;		//대출인
 	String checkOutDate;	//대출 날짜
 	byte state;				//대출 상태
-	
+	 
 	
 	
 	public AppCDInfo(String registerNo, String title) {

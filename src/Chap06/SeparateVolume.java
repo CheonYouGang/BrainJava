@@ -23,7 +23,7 @@ public class SeparateVolume implements Landable {
 		this.bookTitle=bookTitle;
 		this.writer=writer;
 	}
-	
+	 
 	@Override
 	public void checkOut(String borrower, String date){
 		if(state == STATE_BORROWED)

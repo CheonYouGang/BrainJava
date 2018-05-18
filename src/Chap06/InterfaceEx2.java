@@ -26,7 +26,7 @@ public class InterfaceEx2 {
 				arr[cnt].checkOut(borrower, date);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-			}
+			} 
 		}
 	}
 
