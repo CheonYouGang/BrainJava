@@ -18,7 +18,7 @@ import javax.swing.JTable;
   * @author kosea112
   *
   */
-public class WindowEx4_0525 {
+public class WindowEx7 {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("명단 프로그램");
