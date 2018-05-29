@@ -14,3 +14,6 @@ JDBC에러
   
 4.Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
   <원인> : 해당 배열 초과로 인한 오류.
+  
+5.Exception in thread "main" java.lang.Error:
+  <원인> : 생성자가 없을때 인한 오류

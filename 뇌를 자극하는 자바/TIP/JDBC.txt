@@ -34,4 +34,7 @@
    //4단계 .close(); - DB연결 종료.
             conn.close();
             
+   //rs = stmt.executeQuery()
+   * select문 - > executeQuery();
+   * insert, update, delete -> executeUpdate();
   
