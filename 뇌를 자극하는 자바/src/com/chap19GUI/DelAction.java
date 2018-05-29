@@ -7,8 +7,6 @@ package com.chap19GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
