@@ -46,8 +46,8 @@ public class DelAction implements ActionListener {
 		try {
 			jdbcManager.Delete(delName);
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.getMessage();
+			System.out.println(e1.getMessage());
+
 		}
 	}
 }
