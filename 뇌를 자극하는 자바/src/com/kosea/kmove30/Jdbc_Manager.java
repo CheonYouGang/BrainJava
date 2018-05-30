@@ -8,7 +8,6 @@ package com.kosea.kmove30;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -47,14 +46,44 @@ public class Jdbc_Manager {
 	}
 
 	// Select query = "select cname, age, gender from persons"
-	public ResultSet Select(String query) throws SQLException {
+	public ResultSet Select(String query) throws Exception {
 		// 커넥션 객체가 Statement객체를 생성
 		stmt = conn.createStatement();
 		// executeQuery DML쿼리 실행후 결과 저장
 		rs = stmt.executeQuery(query);
 		return rs;
 	}
-	// Insert
+	
+	// Insert - insert into Persons(PName, Gender, Age) values('Gang', 'M', 21);
+	public void Insert(String[] arr) throws Exception{
+		// 커넥션 객체가 Statement객체를 생성
+		String name = arr[0];
+		String gender = arr[1];
+		String age = arr[2];
+		
+		String query = "insert into Persons(PName, Gender, Age) values("+
+					   "'"+name+"', "+
+					   "'"+gender+"', "+
+					   age+")";
+		int insertCount = stmt.executeUpdate(query);
+		
+		System.out.println("query: " + query);
+		if(insertCount>0)
+			System.out.println(insertCount+" 건이 추가 되었습니다.");
+	}
+	
+	// Update - update Persons	set Age = 30 where PName = 'abc';
+	public void Update(String name, String age) throws Exception{
+		String query =  "update Persons " + 
+						"set  Age = " + age +/*", PName = '"+name+"'"+*/
+						" where PName = '" + name +"'";
+		stmt = conn.createStatement();
+		int updateCount = stmt.executeUpdate(query);
+		
+		System.out.println("query: " + query);
+		if(updateCount>0)
+			System.out.println(updateCount+" 건이 추가 되었습니다.");
+	}
 	
 	// Delete query = "delete from Persons	where 이름 = 'delName'";
 	public void Delete(String delName) throws Exception{
@@ -70,4 +99,5 @@ public class Jdbc_Manager {
 	public void DBClose() throws Exception {
 		conn.close();
 	}
+
 }
