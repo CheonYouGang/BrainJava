@@ -26,15 +26,15 @@ import com.kosea.kmove30.Jdbc_Manager;
 public class WindowEx8 {
 
 	public static void main(String[] args) {
-		//DB관리 클래스(연결, 조회, 삭제, 추가 클래스)
+		//DB관리 클래스(연결, 조회, 추가, 수정, 삭제 클래스)
 		Jdbc_Manager jdbcManager = new Jdbc_Manager();
 		
 		JFrame frame = new JFrame("참가자 명단 프로그램");
-		frame.setPreferredSize(new Dimension(500, 400));
+		frame.setPreferredSize(new Dimension(600, 400));
 
 		Container contapane = frame.getContentPane();
 
-		String colName[] = { "이름", "나이", "주소" };
+		String colName[] = { "이름", "성별", "나이" };
 		DefaultTableModel model = new DefaultTableModel(colName, 0);
 		JTable table = new JTable(model);
 
@@ -44,25 +44,29 @@ public class WindowEx8 {
 		JTextField text1 = new JTextField(4);
 		JTextField text2 = new JTextField(2);
 		JTextField text3 = new JTextField(2);
-		JButton add = new JButton("추가");
 		JButton select = new JButton("조회");
+		JButton add = new JButton("추가");
+		JButton update = new JButton("수정");		
 		JButton del = new JButton("삭제");
 
 		panel.add(new JLabel("이름"));
 		panel.add(text1);
-		panel.add(new JLabel("나이"));
+		panel.add(new JLabel("성별(M/F)"));
 		panel.add(text2);
-		panel.add(new JLabel("성별"));
+		panel.add(new JLabel("나이"));
 		panel.add(text3);
-		panel.add(add);
-		panel.add(select);		
+		panel.add(select);
+		panel.add(add);	
+		panel.add(update);
 		panel.add(del);
 
 		contapane.add(panel, BorderLayout.SOUTH);
 
-		//추가, 조회, 삭제 이벤트 리스너 등록
-		add.addActionListener(new AddAction(table, text1, text2, text3));
+		//조회, 추가, 수정, 삭제 이벤트 리스너 등록
 		select.addActionListener(new SelectAction(table, jdbcManager));
+		add.addActionListener(new AddAction(table, jdbcManager, text1, text2, text3));
+		table.addMouseListener(new MyMouseListener(table, jdbcManager, text1, text2, text3));
+		update.addActionListener(new UpdateAction(jdbcManager, text1, text3));
 		del.addActionListener(new DelAction(table, jdbcManager));
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
