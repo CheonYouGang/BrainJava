@@ -65,7 +65,7 @@ public class WindowEx8 {
 		//조회, 추가, 수정, 삭제 이벤트 리스너 등록
 		select.addActionListener(new SelectAction(table, jdbcManager));
 		add.addActionListener(new AddAction(table, jdbcManager, text1, text2, text3));
-		table.addMouseListener(new MyMouseListener(table, jdbcManager, text1, text2, text3));
+		table.addMouseListener(new MyMouseListener(table, jdbcManager, text1, text2, text3));//마우스 리스너(이벤트)
 		update.addActionListener(new UpdateAction(jdbcManager, text1, text3));
 		del.addActionListener(new DelAction(table, jdbcManager));
 
