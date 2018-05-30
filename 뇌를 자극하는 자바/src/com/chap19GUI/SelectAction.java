@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -63,7 +61,7 @@ public class SelectAction implements ActionListener {
 				while(rs.next()) {
 					arr[0]=rs.getString("PName");
 					arr[1]=(rs.getString("Gender").equals("M"))?"남":"여";//.equals("")-문자 비교, == 숫자 비교
-					arr[2]=rs.getString("Age")+"세";
+					arr[2]=rs.getString("Age");
 					System.out.println(arr[0] + " " + arr[1] + " "+ arr[2] + " ");
 					model.addRow(arr);// 레코드 데이터 추가
 				}
@@ -73,7 +71,7 @@ public class SelectAction implements ActionListener {
 				JOptionPane.showMessageDialog(null, "해당 레코드의 값이 없습니다.", "레코드 값이 없습니다.", JOptionPane.WARNING_MESSAGE);
 				System.out.println("해당 레코드의 값이 없습니다.");
 			}
-		} catch (SQLException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		
