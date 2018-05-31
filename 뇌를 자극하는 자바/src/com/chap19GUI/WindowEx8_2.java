@@ -71,7 +71,7 @@ public class WindowEx8_2 {
 		select.addActionListener(new SelectAction(table, jdbcManager));
 		add.addActionListener(new AddAction(table, jdbcManager, text1, genderCombo, text3));
 		table.addMouseListener(new MyMouseListener(table, text1, text3, genderCombo));// 마우스 리스너(이벤트)
-		update.addActionListener(new UpdateAction(jdbcManager, text1, text3));
+		update.addActionListener(new UpdateAction(table, jdbcManager, text1, text3));
 		del.addActionListener(new DelAction(table, jdbcManager));
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
