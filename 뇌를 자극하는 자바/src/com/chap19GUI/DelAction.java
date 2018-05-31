@@ -32,7 +32,7 @@ public class DelAction implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		int confirm = JOptionPane.showConfirmDialog(null, "정말 삭제하시겠습니까?", "삭제",
-				JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE); 
 		
 		System.out.println("confirm: " + confirm);
 		
