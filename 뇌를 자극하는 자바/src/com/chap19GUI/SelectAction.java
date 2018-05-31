@@ -60,7 +60,7 @@ public class SelectAction implements ActionListener {
 			if(rowCount>=1) {
 				while(rs.next()) {
 					arr[0]=rs.getString("PName");
-					arr[1]=(rs.getString("Gender").equals("M"))?"남":"여";//.equals("")-문자 비교, == 숫자 비교
+					arr[1]=(rs.getString("Gender")); //.equals("")-문자 비교, == 숫자 비교
 					arr[2]=rs.getString("Age");
 					System.out.println(arr[0] + " " + arr[1] + " "+ arr[2] + " ");
 					model.addRow(arr);// 레코드 데이터 추가

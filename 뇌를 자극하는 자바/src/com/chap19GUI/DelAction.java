@@ -7,6 +7,8 @@ package com.chap19GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +30,15 @@ public class DelAction implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		int confirm = JOptionPane.showConfirmDialog(null, "정말 삭제하시겠습니까?", "삭제",
+				JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+		
+		System.out.println("confirm: " + confirm);
+		
+		if(confirm == 1)
+			return;
+		
 		int row = table.getSelectedRow();//최초로 선택된 행의 인덱스를 돌려주며, 행이 선택되어 있지 않은 경우는 -1 을 돌려줍니다.
 		if(row==-1)
 			return;
