@@ -61,6 +61,9 @@ public class Jdbc_Manager {
 		String gender = arr[1];
 		String age = arr[2];
 		
+		/*콤보박스가 남이면 m, 아니면 f가 들어간다*/
+		gender = gender.equals("남")?"m":"f";
+		
 		String query = "insert into Persons(PName, Gender, Age) values("+
 					   "'"+name+"', "+
 					   "'"+gender+"', "+
@@ -75,7 +78,7 @@ public class Jdbc_Manager {
 	// Update - update Persons	set Age = 30 where PName = 'abc';
 	public void Update(String name, String age) throws Exception{
 		String query =  "update Persons " + 
-						"set  Age = " + age +/*", PName = '"+name+"'"+*/
+						"set  Age = " + age +
 						" where PName = '" + name +"'";
 		stmt = conn.createStatement();
 		int updateCount = stmt.executeUpdate(query);
