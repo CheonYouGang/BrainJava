@@ -1,0 +1,1 @@
+cmd에서 java -version 입력

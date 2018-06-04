@@ -1,0 +1,25 @@
+폰트 - d2폰트
+
+깃허브 이름-CheonYouGang(띄어쓰기x)
+       이메일-dbrkd0909@naver.com
+
+깃허브 프로젝트 작성시 유의사항
+(https://backlog.com/git-tutorial/kr/contents/ 참조하면 편하다)
+
+1)To create a new repository
+
+  Select Initialize this repository with a README 항목 체크(저장소 초기화)
+
+2)Create a Branch
+
+>이클립스 깃허브 repositories 셋팅
+(http://jwgye.tistory.com/38 사이트 참조)
+
+window-> showview -> repositories -> Clone a GitReopsitory
+깃허브 사이트 메뉴 중 repositories에 있는 허브 주소 복붙
+
+>업로드.
+프로젝트 파일 -> team -> share project 설정
+-> team에 'add to...'체크
+-> team에 commit체크
+->

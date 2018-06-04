@@ -1,0 +1,20 @@
+db연결정보 설정(참조 사이트 *stack overflaw)
+
+db.Properties
+
+JDBC.Driver=com.mysql.jdbc.Driver
+JDBC.ConnectionURL=jdbc:mysql://URL주소:포트번호/DB명
+JDBC.Username=계정명
+JDBC.Password=비밀번호
+
+Properties - 속성들을 관리해주는 java클래스
+
+[일을 하다보면 자주 변경되지 않는 설정파일이나 공통 정보등의 내용들이 종종 존재한다.
+[특히 설정파일의 경우 개발환경과 서비스 환경에서 약간의 차이만 발생할 뿐 한번 지정해두면 거의 변하지 않는다.
+
+[이럴때는 해당 정보를 프로퍼티(properties)로 만들고 필요할때만 읽어서 사용하면 편하다.
+
+[config.properties]
+MSG=Prop OK!(항목명:내용 = key:value)
+
+FileInputStream: 파일에서 내용을 읽어옴

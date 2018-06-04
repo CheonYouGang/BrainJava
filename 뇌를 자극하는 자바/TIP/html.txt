@@ -1,0 +1,17 @@
+https://www.w3schools.com/ (html, css, javascript, sql)
+
+http://bootstrapk.com/ (부트스트랩k) 반응형 웹 프레임워크
+
+https://adminlte.io/themes/AdminLTE/index2.html (Admin_LTE)
+
+프로그래밍(기본)
+1. 변수		(정수형, 문자형, 문자열, 배열)
+2. 제어문	(if~else, switch~case)
+3. 반복문	(for, do~while, while)
+4. 라이브러리 함수 - 프로그래밍 언어에서 제공되는 함수
+5. 사용자 정의 함수 - 개발자가 직접 코딩하여 만든 함수
+
+데이터베이스 - MySQL, OLACLE
+DML - (SELECT, INSERT, UPDATE, DELETE)
+
+프로젝트 - 게시판

@@ -9,7 +9,6 @@ JDBC에러
   <원인> : 0번째 인덱스에 값이 없음
   
 3.Exception in thread "main" java.lang.NullPointerException
-	at JDBC_Persons.main
   <원인> : 값을 넣지 않았을 경우(생성자 없음)
   
 4.Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 3
@@ -17,3 +16,4 @@ JDBC에러
   
 5.Exception in thread "main" java.lang.Error:
   <원인> : 생성자가 없을때 인한 오류
+  

@@ -1,0 +1,10 @@
+네이티브 앱 키
+2902c0e4aa0960f61ee6913566913d08
+REST API 키
+64a58223245c8d24b15b7bddad929e93
+JavaScript 키
+8e9232c8a35e9493f5dcea3b95dceb3a
+Admin 키
+0f61436c5f15efb73d0433c456d745a0
+
+(카카오ver)
