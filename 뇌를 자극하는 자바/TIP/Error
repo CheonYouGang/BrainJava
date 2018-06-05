@@ -17,3 +17,13 @@ JDBC에러
 5.Exception in thread "main" java.lang.Error:
   <원인> : 생성자가 없을때 인한 오류
   
+6. java.io.IOException: Could not find resource /mybatis-config.xml
+  <원인> : 마이바티스 인식을 못해서 일어난 오류
+  <해결> : xml파일을 src 안에 넣어야 할 것
+7. ### Error querying database.  Cause: org.apache.ibatis.reflection.ReflectionException: Error instantiating class com.kosea.kmove30.Member with invalid types () or values (). Cause: java.lang.NoSuchMethodException: com.kosea.kmove30.Member.<init>()
+   ### The error may exist in com/kosea/kmove30/member.xml
+   ### The error may involve defaultParameterMap
+   ### The error occurred while setting parameters
+   .....
+   <원인> : 기본생성자를 만들지 않았을 경우 [ public 클래스 이름(){} ]
+   <해결> : 기본생성자 및 그에 관계된 생성자를 생성하거나 혹은 기본생성자 및 그에 관계된 생성자를 전부 없애면 된다.
