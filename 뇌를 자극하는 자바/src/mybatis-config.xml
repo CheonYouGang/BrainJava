@@ -14,6 +14,7 @@
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/mysql"/>
+        <!-- xml에선 &는 특수문자이므로 &대신 amp; -->
         <property name="username" value="root"/>
         <property name="password" value="12345"/>
       </dataSource>
