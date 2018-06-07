@@ -9,7 +9,7 @@ package com.kosea.kmove30;
   * @author kosea112
   *
   */
-public class Member {
+public class Member {//변수값은 sql의 컬럼명과 같아야 한다.
 	int mno;
 	String LID;
 	String LPASSWORD;
@@ -18,6 +18,14 @@ public class Member {
 	public Member() {
 		//기본 생성자.
 	}
+	
+	public Member(String lID, String lPASSWORD, int mno) {
+		super();
+		LID = lID;
+		LPASSWORD = lPASSWORD;
+		this.mno = mno;
+	}
+
 
 	public Member(int mno, String lID, String lPASSWORD) {
 		super();
