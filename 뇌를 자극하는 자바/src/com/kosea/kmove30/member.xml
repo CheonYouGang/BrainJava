@@ -4,8 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mybatis.example.SelectMapper"><!--SelectMapper 라는 공간에서 selecMember의 Memeber값을 불러옴--> 
 
+  <!-- sql구문에 ;넣으면 오류난다. -->
   <select id="selectMember" resultType="Member">
     select * from member where mno = #{mno}
   </select>
   
+  <delete id="deleteMember" parameterType="int">
+	delete from member where mno = #{mno}
+  </delete>
+  
+
 </mapper>
