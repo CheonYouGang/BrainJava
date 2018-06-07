@@ -26,7 +26,7 @@ public class JdbcManager {
 		//0단계 프로퍼티 설정
 		try {
 			// 프로퍼티 파일 위치
-			String propFile = "db.properties";
+			String propFile = "jdbc.properties";
 
 			// 프로퍼티 객체 생성 == 인스턴스
 			Properties props = new Properties();
