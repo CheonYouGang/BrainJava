@@ -34,6 +34,8 @@
    //4단계 .close(); - DB연결 종료.
             conn.close();
             
+	==================================================================================
+            
    //rs = stmt.executeQuery()
    * select문 - > executeQuery();
    * insert, update, delete -> executeUpdate();
@@ -46,4 +48,9 @@
    *숫자 -> 문자 String strNum = 
     문자 -> 숫자 int num = Integer.parInt("123");
 			
-  
+  *xml형식 특수 문자 표시
+   특수 문자	엔티티 표시
+	  <		       &lt;
+	  >			   &gt;
+	  &		       &amp;
+	  "            &quot;
