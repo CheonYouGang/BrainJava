@@ -6,6 +6,8 @@
 package com.kosea.kmove30;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -29,27 +31,40 @@ public class MybatisTest {
 			SqlSession session = sqlSessionFactory.openSession();
 			try {
 			  // Member member = new Member(101); = 밑에 있는 명령문과 같은 역할
+			  
+			  // 전체조회
+				List<Member> memberList = new ArrayList<Member>();
+				memberList = session.selectList("org.mybatis.example.MemberMapper.selectAllMember");
+				
+				for(Member member : memberList) {
+					String logMessage = member.getLID().toString() + "  //  " + 
+								        member.getLPASSWORD().toString() + "  //  " +
+								        member.getMno();
+					member.println(logMessage);
+				}
+				
+				
+				
 			  // select구문
-/*				Member member  = (Member)session.selectOne("org.mybatis.example.SelectMapper.selectMember", 101);
-			    System.out.println("회원 아이디: "   + member.getLID());
-			    System.out.println("회원 비밀번호: " + member.getLPASSWORD());
-			    System.out.println("회원 번호: "	 + member.getMno());*/
+//				Member member  = (Member)session.selectOne("org.mybatis.example.MemberMapper.selectMember", 101);
+//				member.println("아이디 : "   + member.getLID() +
+//							   " 비밀번호 : " + member.getLPASSWORD() +
+//							   " 번호 : "     + member.getMno());
 			    
-			  // delect구문
-/*			    int deleteCount = session.delete("org.mybatis.example.SelectMapper.deleteMember", 101);
-			    System.out.println("삭제건수"+deleteCount);*/
+/*			  // delect구문
+			    int deleteCount = session.delete("org.mybatis.example.MemberMapper.deleteMember", 101);
+			    System.out.println("삭제건수"+deleteCount);
 			    
 			  // insert구문
-/*			    Member newMember = new Member("천유강", "0123456789!", 103);
-			    int insertCount = session.insert("org.mybatis.example.SelectMapper.insertMember", newMember);
-			    System.out.println("추가 건수" + insertCount);*/
+			    Member newMember = new Member("천유강", "0123456789!", 103);
+			    int insertCount = session.insert("org.mybatis.example.MemberMapper.insertMember", newMember);
+			    System.out.println("추가 건수" + insertCount);
 			    
 			  // update 구문
-			    String queryMapping = "org.mybatis.example.SelectMapper.updateMember";
-			    Member member = new Member(102, "zxcvb", "1234567890"
-			    		+ "!");
+			    String queryMapping = "org.mybatis.example.MemberMapper.updateMember";
+			    Member member = new Member(102, "abc", "1234567890");
 			    int updateCount = session.update(queryMapping, member);		
-			    System.out.println("수정건수" + updateCount);
+			    System.out.println("수정건수" + updateCount);*/
 			    
 			    
 			} catch (Exception e) {

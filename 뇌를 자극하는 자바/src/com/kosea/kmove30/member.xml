@@ -2,9 +2,13 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.mybatis.example.SelectMapper"><!--SelectMapper 라는 공간에서 selecMember의 Memeber값을 불러옴--> 
+<mapper namespace="org.mybatis.example.MemberMapper"><!--MemberMapper 라는 공간에서 selecMember의 Memeber값을 불러옴--> 
 
   <!-- sql구문에 ;넣으면 오류난다. -->
+  <select id="selectAllMember" resultType="Member">
+    select * from member
+  </select>
+  
   <select id="selectMember" resultType="Member">
     select * from member where mno = #{mno}
   </select>

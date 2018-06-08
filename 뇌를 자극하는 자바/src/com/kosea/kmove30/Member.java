@@ -5,11 +5,24 @@
  */
 package com.kosea.kmove30;
 
- /**
+import org.apache.log4j.Logger;
+
+/**
   * @author kosea112
   *
   */
 public class Member {//변수값은 sql의 컬럼명과 같아야 한다.
+	
+	//로그
+	private final Logger logger = Logger.getLogger(Member.class);
+	
+	public void println(String logMessage) {
+		//읽는 순서 FATAL > ERROR > WARN > INFO > DEBUG
+		logger.info(logMessage);
+	}
+	//로그 끝
+	
+	
 	int mno;
 	String LID;
 	String LPASSWORD;
@@ -58,4 +71,5 @@ public class Member {//변수값은 sql의 컬럼명과 같아야 한다.
 		LPASSWORD = lPASSWORD;
 	}
 
+	
 }
