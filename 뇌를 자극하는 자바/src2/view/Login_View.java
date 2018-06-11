@@ -1,6 +1,3 @@
-/**
- * 
- */
 package view;
 
 import javax.swing.ImageIcon;
@@ -11,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-
 
 public class Login_View {
 
@@ -73,13 +69,13 @@ public class Login_View {
 		//페이지 이동
 		
 		//이벤트 리스너
-		loginButton.addActionListener(new LoginAction());
-		cancelButton.addActionListener(new CancelAction());
+//		joinButton.addActionListener(new JoinAction());
+//		loginButton.addActionListener(new LoginAction());
+//		cancelButton.addActionListener(new CancelAction());
 		//이벤트 리스너
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
-
 }

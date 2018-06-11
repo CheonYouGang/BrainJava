@@ -70,8 +70,8 @@ public class Join_View extends Login_View{
 		//취소 버튼
 		
 		//이벤트 리스너
-		joinButton.addActionListener(new JoinAction());
-		cancelButton.addActionListener(new CancelAction());
+//		joinButton.addActionListener(new JoinAction());
+//		cancelButton.addActionListener(new CancelAction());
 		//이벤트 리스너
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
