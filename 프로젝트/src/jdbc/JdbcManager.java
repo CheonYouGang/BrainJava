@@ -6,9 +6,7 @@ package jdbc;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Properties;
 
 /**
@@ -26,7 +24,7 @@ public class JdbcManager {
 		//0단계 프로퍼티 설정
 		try {
 			// 프로퍼티 파일 위치
-			String propFile = "jdbc.properties";
+			String propFile = "db.properties";
 
 			// 프로퍼티 객체 생성 == 인스턴스
 			Properties props = new Properties();
@@ -54,15 +52,10 @@ public class JdbcManager {
 		try {
 
 			// Class.forName - 2단계: JDBC드라이버를 로드
-			/*예전: Class.forName("com.mysql.jdbc.Driver");*/
 			if (driver != null) {
 			    Class.forName(driver) ;
 			}
 			// DriverManager - 3단계: 드라이버매니저 클래스 getConnection메소드로 DB를 연결한다.
-			/*예전: conn = DriverManager.getConnection(
-					// "DBMS의 URL", "포트", "포트비밀번호"
-					"jdbc:mysql://localhost:3306/mysql", "root", "12345");
-			System.out.println("데이터베이스에 접속했습니다.");*/
 			conn = DriverManager.getConnection(url, username, password);
 			System.out.println("데이터베이스에 접속했습니다.");
 			
@@ -78,5 +71,10 @@ public class JdbcManager {
 		catch (SQLException se) {
 			System.out.println(se.getMessage());
 		}
+	}
+
+	public void DBConnection(String driver, String url, String username, String password) {
+		// TODO Auto-generated method stub
+		
 	}
 }
