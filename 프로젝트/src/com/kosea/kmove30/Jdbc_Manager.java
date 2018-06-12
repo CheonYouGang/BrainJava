@@ -1,21 +1,20 @@
 /**
- * 
+ * 2018. 5. 28. Dev By Cheon You Gang
+   com.kosea.kmove30
+   Jdbc_Manager.java
  */
-package jdbc;
+package com.kosea.kmove30;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 
 /**
  * @author kosea112
  *
  */
-public class JdbcManager {
+public class Jdbc_Manager {
 	/* 속성(필드) */
 	// Connection- 1단계: DB연결을 위한 커넥션 인터페이스
 	Connection conn = null;
@@ -25,14 +24,14 @@ public class JdbcManager {
 	ResultSet rs = null;
 
 	/*생성자*/
-	public JdbcManager(Connection conn, Statement stmt, ResultSet rs) {
+	public Jdbc_Manager(Connection conn, Statement stmt, ResultSet rs) {
 		this.conn = conn;
 		this.stmt = stmt;
 		this.rs = rs;
 	}
 
-	public JdbcManager() {
-		System.out.println("JdbcManager() 기본 생성자 호출");
+	public Jdbc_Manager() {
+		System.out.println("Jdbc_Manager() 기본 생성자 호출");
 	}
 
 	
@@ -103,5 +102,5 @@ public class JdbcManager {
 	public void DBClose() throws Exception {
 		conn.close();
 	}
-	
+
 }

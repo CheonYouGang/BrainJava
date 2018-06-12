@@ -3,6 +3,8 @@
  */
 package login;
 
+import join.JoinView;
+
 /**
  * @author 
  *
@@ -10,7 +12,9 @@ package login;
 public class MainProcess {
 
 	LoginView loginView;
+	JoinView joinView;
 	TestFrm testFrm;
+	
 	
 	public MainProcess() {
 		System.out.println("MainProcess() 생성자");
@@ -32,6 +36,8 @@ public class MainProcess {
         MainProcess main = new MainProcess();
         main.loginView = new LoginView(); // 로그인창 보이기
         main.loginView.setMain(main); // 로그인창에게 메인 클래스보내기
+        
+        main.joinView = new JoinView();//회원가입창 보이기
 
 	}
 }

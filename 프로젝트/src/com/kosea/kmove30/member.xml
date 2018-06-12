@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.MemberMapper"><!--MemberMapper 라는 공간에서 selecMember의 Memeber값을 불러옴--> 
+
+  <!-- sql구문에 ;넣으면 오류난다. -->
+  <select id="selectAllMember" resultType="Member">
+    select * from member
+  </select>
+  
+  <select id="selectMember" resultType="Member">
+    select * from member where mno = #{mno}
+  </select>
+  
+  <delete id="deleteMember" parameterType="int">
+	delete from member where mno = #{mno}
+  </delete>
+  
+  <insert id="insertMember" parameterType="Member"><!-- parameterType="Member" 넣은 이유: 테이블의 모든값이 필요하니까. -->
+  	insert into member(LID, LPASSWORD, mno) values(#{LID}, #{LPASSWORD}, #{mno})
+  </insert>
+  
+  <update id="updateMember" parameterType="Member">
+  	update member set
+  	 LID = #{LID},
+	 LPASSWORD = #{LPASSWORD}
+	where mno = #{mno}
+  </update>
+</mapper>
