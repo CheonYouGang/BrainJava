@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+
+<HBox prefHeight="66.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+	<padding>
+		<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+	</padding>
+	<spacing>10.0</spacing>
+
+	<children>
+		<Label prefHeight="25.0" prefWidth="154.0" text="Hello JavaFX!">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin></Label>
+		<TextField prefWidth="200" />
+		<Button mnemonicParsing="false" prefHeight="23.0" prefWidth="112.0" text="확인" />
+	</children>
+</HBox>
