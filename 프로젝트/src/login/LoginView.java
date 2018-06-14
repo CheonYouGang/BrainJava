@@ -41,7 +41,7 @@ public class LoginView extends JFrame{
         setLocation(800, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
        
-        // panel
+        // login panel
         JPanel panel = new JPanel();
         placeLoginPanel(panel);
         add(panel);

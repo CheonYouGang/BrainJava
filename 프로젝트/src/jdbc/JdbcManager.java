@@ -3,13 +3,10 @@
  */
 package jdbc;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 
 /**
  * @author kosea112
@@ -58,17 +55,19 @@ public class JdbcManager {
 	// Insert - insert into Persons(PName, Gender, Age) values('Gang', 'M', 21);
 	public void Insert(String[] arr) throws Exception{
 		// 커넥션 객체가 Statement객체를 생성
-		String name = arr[0];
-		String gender = arr[1];
-		String age = arr[2];
+		String id = arr[0];
+		String pw = arr[1];
+		String name = arr[2];
+		String gender = arr[3];
 		
 		/*콤보박스가 남이면 m, 아니면 f가 들어간다*/
-		gender = gender.equals("남")?"m":"f";
+		gender = gender.equals("남")?"M":"F";
 		
 		String query = "insert into Persons(PName, Gender, Age) values("+
+					   "'"+id+"', "+
+					   "'"+pw+"', "+
 					   "'"+name+"', "+
-					   "'"+gender+"', "+
-					   age+")";
+					   gender+")";
 		int insertCount = stmt.executeUpdate(query);
 		
 		System.out.println("query: " + query);

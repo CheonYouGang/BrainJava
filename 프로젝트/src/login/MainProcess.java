@@ -3,8 +3,6 @@
  */
 package login;
 
-import join.JoinView;
-
 /**
  * @author 
  *
