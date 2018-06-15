@@ -13,6 +13,7 @@ import ch.makery.address.view.PersonEditDialogController;
 import ch.makery.address.view.PersonOverviewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -60,6 +61,9 @@ public class MainApp extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("AddressApp");
 
+	    // 애플리케이션 아이콘을 설정한다.
+	    this.primaryStage.getIcons().add(new Image("file:resources/images/aif_9_1173386.png"));
+		
 		initRootLayout();
 
 		showPersonOverview();
