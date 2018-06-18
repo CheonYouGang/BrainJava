@@ -6,6 +6,11 @@ package ch.makery.address.model;
 /**
  * @author kosea112
  *
+ *주소록에서 연락처 정보를 유지하려면 모델 클래스가 필요합니다.
+ *모델 패키지(ch.makery.address.model)에 Person 이라는 새로운 클래스를 만듭니다. 
+ *Person 클래스는 이름(name), 주소(address) 그리고 생일(birthday) 같은 
+ *인스턴스 변수를 가질 겁니다.
+ * 
  */
 import java.time.LocalDate;
 

@@ -61,8 +61,8 @@ public class MainApp extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("AddressApp");
 
-	    // 애플리케이션 아이콘을 설정한다.
-	    this.primaryStage.getIcons().add(new Image("file:resources/images/aif_9_1173386.png"));
+	    // 애플리케이션 아이콘을 설정한다. px 128x128
+	    this.primaryStage.getIcons().add(new Image("file:resources/images/if_6_1173388.png"));
 		
 		initRootLayout();
 
