@@ -6,16 +6,30 @@ import javafx.collections.ObservableList;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.prefs.Preferences;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
 import ch.makery.address.model.Person;
+import ch.makery.address.model.PersonListWrapper;
 import ch.makery.address.view.PersonEditDialogController;
 import ch.makery.address.view.PersonOverviewController;
+import ch.makery.address.view.RootLayoutController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+
+/*
+ * 프로그램적 내용, 데이터가 들어있다.
+ */
 
 public class MainApp extends Application {
 
@@ -71,6 +85,8 @@ public class MainApp extends Application {
 
 	/**
 	 * 상위 레이아웃을 초기화한다.
+	 * 
+	 * MainApp과 RootLayoutController 연결
 	 */
 	public void initRootLayout() {
 		try {
@@ -82,10 +98,21 @@ public class MainApp extends Application {
 			// 상위 레이아웃을 포함하는 scene을 보여준다.
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
+
+	        // 컨트롤러한테 MainApp 접근 권한을 준다.(6/18) => MainApp과 RootLayoutController 연결
+	        RootLayoutController controller = loader.getController(); 
+	        controller.setMainApp(this);
+	        
 			primaryStage.show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+	    // 마지막으로 열었던 연락처 파일을 가져온다.(6/18)
+	    File file = getPersonFilePath();
+	    if (file != null) {
+	        loadPersonDataFromFile(file);
+	    }
 	}
 
 	/**
@@ -146,6 +173,112 @@ public class MainApp extends Application {
 	        return false;
 	    }
 	}
+	
+	/**
+	 * 연락처 파일 환경설정을 반환한다.
+	 * 즉 파일은 마지막으로 열린 것이고, 환경설정은 OS 특정 레지스트리로부터 읽는다.
+	 * 만일 preference를 찾지 못하면 null을 반환한다.
+	 *
+	 * @return
+	 */
+	public File getPersonFilePath() {
+		
+		System.out.println("getPersonFilePath() 메소드 호출");
+		
+	    Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+	    String filePath = prefs.get("filePath", null);
+	    if (filePath != null) {
+	        return new File(filePath);
+	    } else {
+	        return null;
+	    }
+	}
+
+	/**
+	 * 현재 불러온 파일의 경로를 설정한다. 이 경로는 OS 특정 레지스트리에 저장된다.
+	 *
+	 * @param file the file or null to remove the path
+	 */
+	public void setPersonFilePath(File file) {
+		
+		System.out.println("setPersonFilePath() 메소드 호출");
+		
+	    Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+	    if (file != null) {//.put = 저장.
+	        prefs.put("filePath", file.getPath());
+
+	        // Stage 타이틀을 업데이트한다.
+	        primaryStage.setTitle("AddressApp - " + file.getName());
+	    } else {
+	        prefs.remove("filePath");
+
+	        // Stage 타이틀을 업데이트한다.
+	        primaryStage.setTitle("AddressApp");
+	    }
+	}
+	
+	/**
+	 * 지정한 파일로부터 연락처 데이터를 가져온다. 현재 연락처 데이터로 대체된다.
+	 *
+	 * MainApp 클래스가 연락처 데이터를 읽고 쓰게 만들 겁니다.
+	 * @param file
+	 */
+	public void loadPersonDataFromFile(File file) {
+	    try {
+	        JAXBContext context = JAXBContext
+	                .newInstance(PersonListWrapper.class);
+	        Unmarshaller um = context.createUnmarshaller();
+
+	        // 파일로부터 XML을 읽은 다음 역 마샬링한다.
+	        PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
+
+	        personData.clear();
+	        personData.addAll(wrapper.getPersons());
+
+	        // 파일 경로를 레지스트리에 저장한다.
+	        setPersonFilePath(file);
+
+	    } catch (Exception e) { // 예외를 잡는다
+	        Alert alert = new Alert(AlertType.ERROR);
+	        alert.setTitle("Error");
+	        alert.setHeaderText("Could not load data");
+	        alert.setContentText("Could not load data from file:\n" + file.getPath());
+
+	        alert.showAndWait();
+	    }
+	}
+
+	/**
+	 * 현재 연락처 데이터를 지정한 파일에 저장한다.
+	 *
+	 * @param file
+	 */
+	public void savePersonDataToFile(File file) {
+	    try {
+	        JAXBContext context = JAXBContext
+	                .newInstance(PersonListWrapper.class);
+	        Marshaller m = context.createMarshaller();
+	        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+	        // 연락처 데이터를 감싼다.
+	        PersonListWrapper wrapper = new PersonListWrapper();
+	        wrapper.setPersons(personData);
+
+	        // 마샬링 후 XML을 파일에 저장한다.
+	        m.marshal(wrapper, file);
+
+	        // 파일 경로를 레지스트리에 저장한다.
+	        setPersonFilePath(file);
+	    } catch (Exception e) { // 예외를 잡는다.
+	        Alert alert = new Alert(AlertType.ERROR);
+	        alert.setTitle("Error");
+	        alert.setHeaderText("Could not save data");
+	        alert.setContentText("Could not save data to file:\n" + file.getPath());
+
+	        alert.showAndWait();
+	    }
+	}
+	
 	/**
 	 * 메인 스테이지를 반환한다.
 	 * 
@@ -158,4 +291,5 @@ public class MainApp extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 }

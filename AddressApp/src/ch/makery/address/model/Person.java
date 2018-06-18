@@ -7,13 +7,15 @@ package ch.makery.address.model;
  * @author kosea112
  *
  *주소록에서 연락처 정보를 유지하려면 모델 클래스가 필요합니다.
- *모델 패키지(ch.makery.address.model)에 Person 이라는 새로운 클래스를 만듭니다. 
  *Person 클래스는 이름(name), 주소(address) 그리고 생일(birthday) 같은 
  *인스턴스 변수를 가질 겁니다.
  * 
  */
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import ch.makery.address.util.LocalDateAdapter;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -121,6 +123,7 @@ public class Person {
         return city;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)//(6/18 추가)
     public LocalDate getBirthday() {
         return birthday.get();
     }
