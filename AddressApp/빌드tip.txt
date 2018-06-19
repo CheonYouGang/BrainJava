@@ -1,0 +1,11 @@
+build.xml 실행 
+
+마지막 단계에서 우리는 Ant로 build.xml을 실행합니다: build.xml 파일에서 마우스 오른쪽 클릭 | Run As | Ant Build.
+
+가 먹히지 않을경우
+
+ 
+run as => external... -> jre란 -> separate jre클릭 
+
+
+단계로 가면 먹히게 된다.
