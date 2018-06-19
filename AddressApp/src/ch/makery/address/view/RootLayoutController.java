@@ -116,6 +116,14 @@ public class RootLayoutController {//(6/18)
     }
 
     /**
+     * 생일 차트를 연다.
+     */
+    @FXML
+    private void handleShowBirthdayStatistics() {
+      mainApp.showBirthdayStatistics();
+    }
+    
+    /**
      * 애플리케이션을 닫는다.
      */
     @FXML

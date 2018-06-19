@@ -16,6 +16,7 @@ import javax.xml.bind.Unmarshaller;
 
 import ch.makery.address.model.Person;
 import ch.makery.address.model.PersonListWrapper;
+import ch.makery.address.view.BirthdayStatisticsController;
 import ch.makery.address.view.PersonEditDialogController;
 import ch.makery.address.view.PersonOverviewController;
 import ch.makery.address.view.RootLayoutController;
@@ -29,6 +30,7 @@ import javafx.scene.layout.BorderPane;
 
 /*
  * 프로그램적 내용, 데이터가 들어있다.
+ * 모든 화면과 컨트롤러와 연결되어 있다.
  */
 
 public class MainApp extends Application {
@@ -276,6 +278,34 @@ public class MainApp extends Application {
 	        alert.setContentText("Could not save data to file:\n" + file.getPath());
 
 	        alert.showAndWait();
+	    }
+	}
+	
+	/**
+	 * 생일 통계를 보여주기 위해 다이얼로그를 연다.
+	 * 뷰/컨트롤러를 MainApp으로 연결하기
+	 */
+	public void showBirthdayStatistics() {
+	    try {
+	        // FXML 파일을 불러와서 팝업의 새로운 Stage를 만든다.
+	        FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(MainApp.class.getResource("view/BirthdayStatistics.fxml"));
+	        AnchorPane page = (AnchorPane) loader.load();
+	        Stage dialogStage = new Stage();
+	        dialogStage.setTitle("Birthday Statistics");
+	        dialogStage.initModality(Modality.WINDOW_MODAL);
+	        dialogStage.initOwner(primaryStage);
+	        Scene scene = new Scene(page);
+	        dialogStage.setScene(scene);
+
+	        // 연락처를 컨트롤러에 설정한다.
+	        BirthdayStatisticsController controller = loader.getController();
+	        controller.setPersonData(personData);
+
+	        dialogStage.show();
+
+	    } catch (IOException e) {
+	        e.printStackTrace();
 	    }
 	}
 	
