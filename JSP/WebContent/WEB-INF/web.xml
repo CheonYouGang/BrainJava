@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>JSP</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>hundred-Servlet</servlet-name>
+  	<servlet-class>HundredServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hundred-Servlet</servlet-name>
+  	<url-pattern>/hundred</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>adder-Servlet</servlet-name>
+  	<servlet-class>AdderServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>adder-Servlet</servlet-name>
+  	<url-pattern>/adder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BBSPost-Servlet</servlet-name>
+  	<servlet-class>BBSPostServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>BBSPost-Servlet</servlet-name>
+  	<url-pattern>/bbs-post</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Personal-Servlet</servlet-name>
+  	<servlet-class>PersonalInfoServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Personal-Servlet</servlet-name>
+  	<url-pattern>/pinfo-result</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Fibonacci-Servlet</servlet-name>
+  	<servlet-class>FibonacciServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Fibonacci-Servlet</servlet-name>
+  	<url-pattern>/Fibonacci</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Ptest-Servlet</servlet-name>
+  	<servlet-class>PtestServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Ptest-Servlet</servlet-name>
+  	<url-pattern>/ptest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Winners-Servlet</servlet-name>
+  	<servlet-class>WinnersServlet</servlet-class>	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Winners-Servlet</servlet-name>
+  	<url-pattern>/winners</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

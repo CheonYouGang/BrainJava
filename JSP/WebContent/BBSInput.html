@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BBSInput</title>
+</head>
+<body>
+	<h2>글쓰기</h2>
+	<!-- form action="/JSP/bbs-post" method="post" 서블릿으로만 감-->
+	<form action="/JSP/BBSPost.jsp" method="post"><!-- JSP로 감. -->
+		이름: <input type="text" name="Name"><br>
+		제목: <input type="text" name="Title"><br>
+		<textarea cols="50" rows="5" name="Content"></textarea><br>
+		<input type="submit" value="저장">
+		<input type="reset" value="취소">
+	</form>
+</body>
+</html>

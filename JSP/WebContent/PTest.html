@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>성격테스트</title>
+</head>
+<body>
+	<h2>성격테스트</h2>
+	당신의 성격을 테스트합니다. 데이터를 입혁한 후 확인 버튼을 눌러주세요
+	<form action="/JSP/ptest" method="post">
+	
+	이름은?
+	 <input type="text" name="Name"><br><br>
+
+	좋아하는 색은?
+	 <input name="color" type="radio" value="노랑">노랑
+	 <input name="color" type="radio" value="빨강">빨강
+	 <input name="color" type="radio" value="파랑">파랑<br><br>
+
+    좋아하는 동물은?
+	 <select name="Animalbox">
+	 	<option>개</option>
+	 	<option>곰</option>
+	 	<option>문</option>
+	 </select><br><br>
+
+	좋아하는 음식은? (모두고르세요)
+		짜장면<input name="afood" value="짜장면" type="checkbox">
+		짬뽕<input name="bfood" value="짬뽕" type="checkbox">
+		탕수육<input name="cfood" value="탕수육" type="checkbox"><br><br>
+
+	<input type="submit" value="확인">
+	</form>
+</body>
+</html>
