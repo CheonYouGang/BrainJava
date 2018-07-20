@@ -38,6 +38,12 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <context-param>
+  	<description>DB이름</description>
+  	<param-name>DB_NAME</param-name>
+  	<param-value>bankdb</param-value>
+  </context-param>
+  
   <servlet>
   	<servlet-name>hundred-Servlet</servlet-name>
   	<servlet-class>HundredServlet</servlet-class>	
@@ -132,7 +138,10 @@
   	<servlet-class>chap06.GreetingServlet</servlet-class>	
   	<init-param>
   		<param-name>FILE_NAME</param-name>
+  		<!-- 
   		<param-value>D:\\wokspace\\data\\log2.txt</param-value>
+  		 -->
+  		 <param-value>/../WEB-INF</param-value>
   	</init-param>
   </servlet>
   <servlet-mapping>
@@ -140,4 +149,51 @@
   	<url-pattern>/chap06/greeting</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+  	<servlet-name>menu-Jsp(ex6-302p)</servlet-name>
+  	<jsp-file>/Menu.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>menu-Jsp(ex6-302p)</servlet-name>
+  	<url-pattern>/menu</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>dbName(ex6-304p)</servlet-name>
+  	<jsp-file>/chap06/dbName.jsp</jsp-file>	
+  	<init-param>
+  		<param-name>DB_NAME</param-name>
+  		<param-value>malldb</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>dbName(ex6-304p)</servlet-name>
+  	<url-pattern>/chap06/dbName</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  <servlet-name>ServerInfoServlet(ex6-308p)</servlet-name>
+  	<servlet-class>chap06.ServerInfoServlet</servlet-class>
+  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServerInfoServlet(ex6-308p)</servlet-name>
+  	<url-pattern>/ServerInfoServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>Greeting2-Servlet</servlet-name>
+  	<servlet-class>chap06.GreetingServlet2</servlet-class>	
+  	<init-param>
+  		<param-name>FILE_NAME</param-name>
+  		<!-- 
+  		<param-value>D:\\wokspace\\data\\log2.txt</param-value>
+  		 -->
+  		 <param-value>/../WEB-INF</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Greeting2-Servlet</servlet-name>
+  	<url-pattern>/chap06/greeting</url-pattern>
+  </servlet-mapping>
 </web-app>
