@@ -130,6 +130,10 @@
   <servlet>
   	<servlet-name>Greeting-Servlet</servlet-name>
   	<servlet-class>chap06.GreetingServlet</servlet-class>	
+  	<init-param>
+  		<param-name>FILE_NAME</param-name>
+  		<param-value>D:\\wokspace\\data\\log2.txt</param-value>
+  	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>Greeting-Servlet</servlet-name>
